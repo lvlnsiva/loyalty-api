@@ -10,4 +10,19 @@ class ApplicationController < ActionController::API
     render json: { error: 'Unauthorized' }, status: :unauthorized unless @current_user
   end
 
+  def render_success(data = {}, message: 'Success', code: 200, status: :ok)
+    render json: {
+      code: 200,
+      message: message,
+      data: data,
+    }, status: :ok
+  end
+
+  def render_error(http_status, code:, error_message:)
+    render json: {
+      code: code,
+      message: error_message
+    }
+  end
+
 end

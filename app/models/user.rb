@@ -1,7 +1,9 @@
 class User < ApplicationRecord
-  has_many :customer_transactions
-  has_many :points
-  has_many :rewards
+  has_many :customer_transactions, dependent: :destroy
+  has_many :points, dependent: :destroy
+  has_many :rewards, dependent: :destroy
+
+
 
   enum level: { level_1: 0, level_2: 1 }
 
