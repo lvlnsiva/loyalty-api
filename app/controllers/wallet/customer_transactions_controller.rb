@@ -34,21 +34,5 @@ module Wallet
       return render_error(404, code: 404, error_message: "User not found") unless user
       return render_error(403, code: 403, error_message: "Forbidden: User mismatch") if user.id != @current_user.id
     end
-
-    # def render_success(transaction)
-    #   render json: {
-    #     code: 200,
-    #     message: 'Transaction successful',
-    #     transaction: transaction,
-    #     points_awarded: transaction.point&.points
-    #   }, status: :ok
-    # end
-
-    # def render_error(http_status, code:, error_message:)
-    #   render json: {
-    #     code: code,
-    #     error_message: error_message,
-    #   }, status: http_status
-    # end
   end
 end
